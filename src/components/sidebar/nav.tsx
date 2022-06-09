@@ -12,13 +12,13 @@ export function Nav() {
   return (
     <Stack spacing='12' align='flex-start'>
       <NavSection title='GERAL'>
-        <NavLink icon={RiDashboardLine}>DASHBOARD</NavLink>
-        <NavLink icon={RiContactsLine}>USUÁRIOS</NavLink>
+        <NavLink href='/dashboard' icon={RiDashboardLine}>DASHBOARD</NavLink>
+        <NavLink href='/users' icon={RiContactsLine}>USUÁRIOS</NavLink>
       </NavSection>
 
       <NavSection title='AUTOMAÇÃO'>
-        <NavLink icon={RiInputMethodLine}>FORMULÁRIOS</NavLink>
-        <NavLink icon={RiGitMergeLine}>AUTOMAÇÃO</NavLink>
+        <NavLink href='/forms' icon={RiInputMethodLine}>FORMULÁRIOS</NavLink>
+        <NavLink href='/automation' icon={RiGitMergeLine}>AUTOMAÇÃO</NavLink>
       </NavSection>
     </Stack>
   )
