@@ -1,9 +1,12 @@
 import { ChakraProvider } from '@chakra-ui/react'
 import { AppProps } from 'next/app'
 import { QueryClient, QueryClientProvider } from 'react-query'
+import { ReactQueryDevtools } from 'react-query/devtools'
+
 import { SidebarDrawerProvider } from '../contexts/sidebar_drawer'
 import { makeServer } from '../services/mirage'
 import { theme } from '../styles/theme'
+
 
 if (process.env.NODE_ENV === 'development') {
   makeServer()
@@ -19,6 +22,8 @@ function MyApp({ Component, pageProps } : AppProps) {
           <Component {...pageProps} />
         </SidebarDrawerProvider>
       </ChakraProvider>
+
+      {process.env.NODE_ENV === 'development' && <ReactQueryDevtools />}
     </QueryClientProvider>
   )
 }
