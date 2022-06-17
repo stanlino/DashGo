@@ -1,11 +1,12 @@
 import { Button } from "@chakra-ui/react"
 
 interface ItemProps {
-  nummber: number
+  number: number
   isCurrent?: boolean
+  onPageChange: (page: number) => void
 }
 
-export function Item({ isCurrent = false, nummber }: ItemProps) {
+export function Item({ isCurrent = false, number, onPageChange }: ItemProps) {
   if (isCurrent) {
     return (
       <Button 
@@ -19,7 +20,7 @@ export function Item({ isCurrent = false, nummber }: ItemProps) {
           cursor: 'default'
         }}
       >
-        {nummber}
+        {number}
       </Button>
     )
   }
@@ -33,8 +34,9 @@ export function Item({ isCurrent = false, nummber }: ItemProps) {
       _hover={{
         bg: 'gray.500'
       }}
+      onClick={() => onPageChange(number)}
     >
-      {nummber}
+      {number}
     </Button>
   )
 }
